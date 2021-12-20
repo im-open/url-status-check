@@ -1,22 +1,29 @@
-name: 'Composite Run Steps Action Template'
+name: 'Url Status Check'
 
-description: 'Add description here'
+description: 'Pings a url and outputs the status code and content of the response'
 
 inputs:
-  input-1:
-    description: 'Add a description here'
+  url:
+    description: 'The url to ping.'
     required: true
+  fail-on-bad-status:
+    description: 'A flag that specifies whether or not to fail the action when a 400 or higher status code is returned. The expected values are true and false.'
+    required: false
+    default: 'false'
 
 outputs:
-  output-1:
-    description: 'Add description here'
-    value: '${{ steps.step_1.outputs.world }}'
+  status_code:
+    description: 'The status code returned by the request.'
+    value: '${{ steps.ping.outputs.status_code }}'
+  content:
+    description: 'The body content returned by the request.'
+    value: '${{ steps.ping.outputs.content }}'
 
 runs:
   using: 'composite'
   steps:
-    - name: Step 1
-      id: step_1
-      shell: bash
+    - name: Query the url and print the response
+      id: ping
+      shell: pwsh
       run: |
-        echo "::set-output name=hello::world"
+        ${{ github.action_path }}/src/url-status-check.ps1 -url "${{ inputs.url }}" -errorOnBadStatus:$${{ inputs.fail-on-bad-status }}
