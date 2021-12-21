@@ -6,7 +6,6 @@ A GitHub Action that will ping a url and output the status code and content from
 
 - [url-status-check](#url-status-check)
   - [Index](#index)
-  - [TODOs](#todos)
   - [Inputs](#inputs)
   - [Outputs](#outputs)
   - [Example](#example)
@@ -14,36 +13,12 @@ A GitHub Action that will ping a url and output the status code and content from
     - [Incrementing the Version](#incrementing-the-version)
   - [Code of Conduct](#code-of-conduct)
   - [License](#license)
-  
-## TODOs
-- Repository Settings
-  - [ ] On the *Options* tab update the repository's visibility
-- About Section (accessed on the main page of the repo, click the gear icon to edit)
-  - [ ] The repo should have a short description of what it is for
-  - [ ] Add one of the following topic tags:
-    | Topic Tag       | Usage                                    |
-    | --------------- | ---------------------------------------- |
-    | az              | For actions related to Azure             |
-    | code            | For actions related to building code     |
-    | certs           | For actions related to certificates      |
-    | db              | For actions related to databases         |
-    | git             | For actions related to Git               |
-    | iis             | For actions related to IIS               |
-    | microsoft-teams | For actions related to Microsoft Teams   |
-    | svc             | For actions related to Windows Services  |
-    | jira            | For actions related to Jira              |
-    | meta            | For actions related to running workflows |
-    | pagerduty       | For actions related to PagerDuty         |
-    | test            | For actions related to testing           |
-    | tf              | For actions related to Terraform         |
-  - [ ] Add any additional topics for an action if they apply    
-    
 
 ## Inputs
 | Parameter            | Is Required | Default | Description                                                                                                                                   |
 | -------------------- | ----------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | `url`                | true        | N/A     | The url to ping.                                                                                                                              |
-| `fail-on-bad-status` | false       | false   | A flag that specifies whether or not to fail the action when a 400 or higher status code is returned. The expected values are true and false. |
+| `fail-on-bad-status` | false       | true    | A flag that specifies whether or not to fail the action when a 400 or higher status code is returned. The expected values are true and false. |
 
 ## Outputs
 | Output        | Description                               |
@@ -62,7 +37,7 @@ jobs:
         uses: im-open/url-status-check@v1.0.0
         with:
           url: 'https://www.google.com/'
-          fail-on-bad-status: true
+          fail-on-bad-status: false
 ```
 
 ## Contributing
