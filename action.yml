@@ -9,7 +9,7 @@ inputs:
   fail-on-bad-status:
     description: 'A flag that specifies whether or not to fail the action when a 400 or higher status code is returned. The expected values are true and false.'
     required: false
-    default: 'false'
+    default: 'true'
 
 outputs:
   status_code:
