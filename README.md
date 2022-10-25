@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: 'Get the status of google.com'
-        uses: im-open/url-status-check@v1.0.1
+        uses: im-open/url-status-check@v1.1.0
         with:
           url: 'https://www.google.com/'
           fail-on-bad-status: false
