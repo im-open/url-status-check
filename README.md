@@ -15,12 +15,14 @@ A GitHub Action that will ping a url and output the status code and content from
   - [License](#license)
 
 ## Inputs
+
 | Parameter            | Is Required | Default | Description                                                                                                                                   |
 | -------------------- | ----------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | `url`                | true        | N/A     | The url to ping.                                                                                                                              |
 | `fail-on-bad-status` | false       | true    | A flag that specifies whether or not to fail the action when a 400 or higher status code is returned. The expected values are true and false. |
 
 ## Outputs
+
 | Output        | Description                               |
 | ------------- | ----------------------------------------- |
 | `status_code` | The status code returned by the request.  |
@@ -34,7 +36,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: 'Get the status of google.com'
-        uses: im-open/url-status-check@v1.1.0
+        uses: im-open/url-status-check@v1.1.1
         with:
           url: 'https://www.google.com/'
           fail-on-bad-status: false
