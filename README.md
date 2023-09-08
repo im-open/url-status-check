@@ -1,3 +1,7 @@
+# DEPRECATED
+
+This action was deprecated on 2023-09-08 and will no longer receive support or updates.
+
 # url-status-check
 
 A GitHub Action that will ping a url and output the status code and content from the response. An optional flag can be set to cause the action to fail when a status code of 400 or more is returned.
